@@ -31,11 +31,11 @@ class LessonsViewSet(viewsets.ModelViewSet):
     @action(methods=['post'], detail=True, url_path='add-care')
     def add_care(self, request, pk):
         lesson = Lessons.objects.get(pk=pk)
-        cares = request.data.get('cares')
+        cares_request = request.data.get('cares')
 
-        if cares is not None:
-            for care in cares:
-                result_care = Cares.objects.get_or_create(name=care)
+        if cares_request is not None:
+            for care in cares_request:
+                result_care, _ = Cares.objects.get_or_create(name=care)
                 lesson.cares.add(result_care)
 
             lesson.save()

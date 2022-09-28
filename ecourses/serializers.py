@@ -17,7 +17,7 @@ class TagsSerializer(ModelSerializer):
 class CaresSerializer(ModelSerializer):
     class Meta:
         model = Cares
-        fields = ['id', 'name', 'created_date', 'updated_date']
+        fields = ['id', 'name']
 
 
 class LessonsSerializer(ModelSerializer):
